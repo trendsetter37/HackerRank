@@ -2,8 +2,7 @@ from functools import reduce
 import sys
 import test
 
-# From HackerRank Sh
-# So far this is slow, improve
+
 def operation(N, M, input_list):
 	s=0
 	for i in input_list[1::]:
