@@ -7,9 +7,6 @@ def unfair(n, k, n_list):
         
     return unfairness
         
-    
-    
-# 1335 to testcase2
 #end
 if __name__ == '__main__':
     N = int(input()) # number of numbers
@@ -18,10 +15,7 @@ if __name__ == '__main__':
     
     for i in range(int(N)):
         numbers.append(int(input()))
-        
-    
-    
-                
+                  
     numbers.sort() # Sort first
     
     print(unfair(N,K,numbers))
