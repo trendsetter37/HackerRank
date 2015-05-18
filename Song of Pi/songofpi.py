@@ -1,5 +1,4 @@
 def PI_Song(string):
-    yes = True
     
     for idx, word in enumerate(string.split()):
         if len(word) != int(PI[idx]):
@@ -10,8 +9,6 @@ def PI_Song(string):
 #end
 if __name__ == '__main__':
     PI = "31415926535897932384626433833"
-    PI_LENGTH = len(PI)
-    T = int(input())
-    for i in range(T):
+    for i in range(int(input()):
         print(PI_Song(input()))
         
