@@ -1,9 +1,16 @@
 
-def swap(index1, index2):
-	pass
+def swap(array, index1, index2):
+	array[index1], array[index2] = array[index2], array[index1]
 
-def reverse(index1, index2):
-	pass
+
+def reverse(array, index1, index2):
+	
+	if index1 > index2:
+		return
+	
+	swap(array, index1, index2)
+	reverse(array, index1+1, index2-1)
+
 
 def almost_sorted(array):
 	pass
