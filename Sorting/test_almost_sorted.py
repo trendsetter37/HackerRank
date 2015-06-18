@@ -20,8 +20,6 @@ class TestAlmost_Sorted(unittest.TestCase):
 
 	def test_swap_function(self):
 		
-		#index1 = random.randint(0,len(test_array)-1)
-		#index2 = random.randint(index1+1, len(test_array)-1)
 		index1, index2 = choose_random_indices(self.test_array)
 		value1_before = self.test_array[index1]
 		value2_before = self.test_array[index2]
