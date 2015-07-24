@@ -1,15 +1,6 @@
 
-def swap(array, index1, index2):
-	array[index1], array[index2] = array[index2], array[index1]
+samples = [[1,2,3,4,5], [1,4,3,2,5], [1,7,6,5,4,3,2,8], [1,2,3,4,5,9,7,8,6]]
 
-
-def reverse(array, index1, index2):
-	
-	if index1 > index2:
-		return
-	
-	swap(array, index1, index2)
-	reverse(array, index1+1, index2-1)
 
 
 def almost_sorted(array, size):
@@ -28,25 +19,46 @@ def almost_sorted(array, size):
 		(8)There are some edge cases which you need to take care of though
 
 		'''
-
-
-	anomalies = 0
-	reverse_count = 0
-	anomaly_locations_and_type =[] 
+	
+	#anomaly_locations_and_type =[] 
+	curr = 0
+	prev = 0
+	next = 0
+	dips = 0
+	ups = 0
+	answer = ''
+	swap_locations = []
+	r_locations = []
+	zeroes = 0
+	ones = 0
 
 	for i in xrange(1, size-1):
-		if array[i] < array[i-1]:
-			anomalies += 1
-			if array[i] > array[i+1]:
-				reverse_count += 1 # only applicable for reversals
-		elif array[i] > array[i+1]:
-			anomalies += 1
-	if anomalies == 0:
-		return 'yes'
-	elif reverse_count == 0 and anomalies % 2 == 0 and anomalies <5:
-		return 'yes\nreversal'
+		prev = array[i-1]
+		curr = array[i]
+		next = array[i+1]
+		if curr > prev and curr > next: # Forms an inversion or dips or 0
+			#[3,2,1]
+			swap_locations.append(i)
+			zeroes += 1
+			dips += 1
+		elif curr < prev and curr < next: # Forms a reverse inversion or ups or 1
+			#anomaly_locations_and_type.append((i, '1'))
+			r_locations.append(i)
+			ones += 1
+			ups += 1
+		elif curr < prev and curr > next and size == 3:
+			return 'yes swap'
+
+	if dips ==1 and ups ==1 and size != 4:
+		answer = 'yes reverse'
+	elif dips == 2 and ups == 2:
+		answer = 'yes swap'
+	elif dips == 0 and ups == 0:
+		answer = 'yes'
 	else:
-		return 'no'
+		answer = 'no'
+	return answer
+
 #fin
 
 if __name__ == '__main__':
