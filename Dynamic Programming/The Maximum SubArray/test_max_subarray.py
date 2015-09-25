@@ -2,6 +2,7 @@ import sys
 import os
 import json
 import unittest
+import time
 from maximum_subarray import dp
 
 class TestCase2(unittest.TestCase):
@@ -194,8 +195,16 @@ if __name__ == '__main__':
 	logfile = 'logs/test_log_file.txt'
 	f = open(logfile, 'w')
 	runner = unittest.TextTestRunner(f)
+	the_time = '* ' + time.asctime(time.localtime()) + ' *\n' 
+	tl = len(the_time)
+	borders = ('*' * (tl-1)) + '\n' # top and bottom borders
+	f.write(borders + the_time + borders)
 	unittest.main(testRunner=runner)
 	f.close()
+	
+
+	
+
 
 
 

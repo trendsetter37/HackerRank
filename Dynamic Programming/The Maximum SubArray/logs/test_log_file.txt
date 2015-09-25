@@ -1,24 +1,8 @@
-.F..
-======================================================================
-FAIL: test_answers_against_test_case2_outputs (__main__.TestCase2)
+****************************
+* Fri Sep 25 15:16:58 2015 *
+****************************
+....
 ----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "test_max_subarray.py", line 52, in test_answers_against_test_case2_outputs
-    self.assertEqual(result, self.outputs[idx])
-AssertionError: Lists differ: ['2617065', '172073086'] != [u'2617065', u'172083036']
+Ran 4 tests in 2.619s
 
-First differing element 1:
-172073086
-172083036
-
-- ['2617065', '172073086']
-?                  ^  ^
-
-+ [u'2617065', u'172083036']
-?  +           +     ^  ^
-
-
-----------------------------------------------------------------------
-Ran 4 tests in 0.951s
-
-FAILED (failures=1)
+OK
