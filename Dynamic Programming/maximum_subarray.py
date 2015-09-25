@@ -1,39 +1,17 @@
 
 ''' https://www.hackerrank.com/challenges/maxsubarray '''
 def dp(L):
-    c_sum = 0
-    best_sum = 0
-    contig = [-2**31]
-    non_contig = [-2**31]
-    i = 0
-    
-    # must loop through all in array
-    for num in L:
-        value = c_sum + num
-        if value > 0:
-            if c_sum == 0:
-                contig.append(value)           
-            c_sum = value
-        else:
-            contig = [-2**31]
-            c_sum = 0            
-        # last check
-        if c_sum > best_sum:
-            best_sum = c_sum
-            contig.append(best_sum)
-                        
-        # non-contig 
-        if i == 0:
-            val = num
-            if val > non_contig[-1]:
-                non_contig.append(val)      
-        else:
-            val = num + non_contig[-1]
-            if val > non_contig[-1]:
-                non_contig.append(val)
-        i += 1
-    return map(str, (contig[-1], non_contig[-1]))
-             
+    max_so_far = max_ending_here = -2**31 # contig logic works
+    non_contig = [L[0]] # accounting for negative arrays
+
+    for i in xrange(len(L[0::])):
+        max_ending_here = max(L[i], max_ending_here + L[i])        
+        max_so_far = max(max_so_far, max_ending_here) 
+        # non-contiguous logic
+        if i != 0:
+            non_contig.append(max(non_contig[-1], non_contig[-1] + L[i]))   
+    return map(str, (max_so_far, non_contig[-1]))
+
 if __name__ == '__main__':
     test_cases = int(raw_input())
     for i in xrange(test_cases):
