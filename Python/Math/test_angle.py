@@ -1,10 +1,10 @@
 ''' Testing right angle class '''
 
 import unittest
-from find_angle_mbc import RightTriangle  #pylint: disable-msg=F0401
+from find_angle_mbc import RightTriangle  # pylint: disable-msg=F0401
 
 
-class TestRightTriangle(unittest.TestCase):  #pylint: disable-msg=R0904
+class TestRightTriangle(unittest.TestCase):  # pylint: disable-msg=R0904
     ''' Used to test RightTriangle class '''
     def setUp(self):
         ''' side, side, answer, hypot, small_hypot, far_angle, adj_side'''
