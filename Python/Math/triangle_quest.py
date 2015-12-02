@@ -1,3 +1,7 @@
+''' 2 Liner for HackerRank contraints
+    for i in xrange(1,int(raw_input())+1):
+        print ((10**i) / 9)**2
+'''
 BASE_10 = 10
 SQUARE = 2
 
