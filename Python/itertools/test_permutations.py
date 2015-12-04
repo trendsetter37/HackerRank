@@ -1,5 +1,5 @@
 import unittest
-from permutations import permute, combinate, combinate_with_replace
+from permutations import permute, combinate, combinate_with_replace, Acount
 
 
 class TestPermutations(unittest.TestCase):
@@ -27,6 +27,18 @@ class TestPermutations(unittest.TestCase):
             combinate_with_replace(self.sample_input),
             self.replacement_output
         )
+
+
+class TestProbabilityClass(unittest.TestCase):
+    def setUp(self):
+        self.test_case = 'a a b c'
+        self.l = self.test_case.split()
+        self.k = 2
+        self.answer = 0.8333333
+        self.a_count = Acount(self.l, self.k)
+
+    def test_prob_class(self):
+        self.assertAlmostEqual(self.a_count.prob, self.answer, places=3)
 
 if __name__ == '__main__':
     unittest.main()
