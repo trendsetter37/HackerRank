@@ -36,8 +36,6 @@ def combinate_with_replace(input_string):
 
 ''' Probability class '''
 
-from itertools import combinations
-
 
 class Acount(object):
     ''' https://www.hackerrank.com/challenges/iterables-and-iterators '''
