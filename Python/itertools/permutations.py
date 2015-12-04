@@ -3,7 +3,8 @@
     Your task is to print all possible permutations
     of size k of the string in lexicographic sorted order.
 '''
-from itertools import permutations, combinations, combinations_with_replacement
+from itertools import permutations, \
+    combinations, combinations_with_replacement, groupby
 
 
 def _hacker_output(lis):
@@ -68,3 +69,8 @@ class Acount(object):
         result = list(combinations(indices, self.k))
         [self.inc() for s in result if len(a_indices & set(s)) > 0]
         return self.count / float(len(result))
+
+
+def string_compression(string):
+    result = [(len(list(g)), int(k)) for k, g in groupby(string)]
+    return result

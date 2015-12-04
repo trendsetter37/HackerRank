@@ -1,9 +1,11 @@
 import unittest
-from permutations import permute, combinate, combinate_with_replace, Acount
+from permutations import *
 
 
 class TestPermutations(unittest.TestCase):
     def setUp(self):
+        self.string_compression_input = '1222311'
+        self.compression_answer = '(1, 1) (3, 2) (1, 3) (2, 1)'
         self.sample_input = 'HACK 2'
         self.sample_output = 'AC\nAH\nAK\nCA\nCH\nCK\nHA\n' + \
             'HC\nHK\nKA\nKC\nKH'
@@ -27,6 +29,13 @@ class TestPermutations(unittest.TestCase):
             combinate_with_replace(self.sample_input),
             self.replacement_output
         )
+
+    def test_string_compression(self):
+        result = string_compression(self.string_compression_input)
+        r_string = ''
+        for tup in result:
+            r_string += str(tup) + ' '
+        self.assertEqual(r_string.strip(), self.compression_answer)
 
 
 class TestProbabilityClass(unittest.TestCase):
