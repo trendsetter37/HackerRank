@@ -4,7 +4,8 @@
     of size k of the string in lexicographic sorted order.
 '''
 from itertools import permutations, \
-    combinations, combinations_with_replacement, groupby
+    combinations, combinations_with_replacement, \
+    groupby, product
 
 
 def _hacker_output(lis):
@@ -74,3 +75,22 @@ class Acount(object):
 def string_compression(string):
     result = [(len(list(g)), int(k)) for k, g in groupby(string)]
     return result
+
+
+def maximize(lists, M):
+    ''' f(x) = x^2
+        https://www.hackerrank.com/challenges/maximize-it
+        Sample input
+        3 1000
+        2 5 4
+        3 7 8 9
+        5 5 7 8 9 10
+
+        Desired Output
+        206
+    '''
+
+    ls = []
+    for l in lists:
+        ls.append(map(lambda x: x**2, l))
+    return max(map(lambda x: x % M, map(sum, product(*ls))))

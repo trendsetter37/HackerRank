@@ -4,6 +4,9 @@ from permutations import *
 
 class TestPermutations(unittest.TestCase):
     def setUp(self):
+        self.maximize_lists = [[5, 4], [7, 8, 9], [5, 7, 8, 9, 10]]
+        self.maximize_M = 1000
+        self.maximize_solution = 206
         self.string_compression_input = '1222311'
         self.compression_answer = '(1, 1) (3, 2) (1, 3) (2, 1)'
         self.sample_input = 'HACK 2'
@@ -36,6 +39,12 @@ class TestPermutations(unittest.TestCase):
         for tup in result:
             r_string += str(tup) + ' '
         self.assertEqual(r_string.strip(), self.compression_answer)
+
+    def test_maximize(self):
+        self.assertEqual(
+            maximize(self.maximize_lists, self.maximize_M),
+            self.maximize_solution
+        )
 
 
 class TestProbabilityClass(unittest.TestCase):
