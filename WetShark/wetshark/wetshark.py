@@ -6,6 +6,7 @@ import itertools
 def dryshark(constraints, array):
     m, r, s = map(int, constraints.split())
     arr = [int(x) for x in array.split(' ')]
+    print(arr)
     yes = 0
     def check_sum(A, B):
         # will always receive two subseqs
@@ -17,20 +18,17 @@ def dryshark(constraints, array):
         if calc_r == r and calc_s == s:
             yes += 1
     for num in range(1, len(arr) + 1):
-        # check sum
         if num == 1:
-            perm = itertools.permutations(arr, 2)
-            for tup in perm:
-                a = tup[0],
-                b = tup[1],
-                check_sum(a, b)
+            print('entered if clause')
+            for tup in itertools.permutations(arr, 2):
+                check_sum((tup[0],), (tup[1],))
         else:
-            tuples = itertools.permutations(arr, num)  # provides tuples of 2
-            tup_perm = itertools.permutations(tuples, 2)  # will always compare 2
-            for tuppy in tup_perm:
-                check_sum(tuppy[0], tuppy[1])
+            print('Entered else clause')
+            tuples = list(itertools.permutations(arr, num))  # provides tuples of 2
+            #tup_perm = itertools.permutations(tuples, 2)  # will always compare 2
+            print(tuples)
     return yes
 
 
 if __name__ == '__main__':
-    print(dryshark('4 5 3', '1 1 1 4'))
+    print(dryshark('98 44 0', '1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1'))
